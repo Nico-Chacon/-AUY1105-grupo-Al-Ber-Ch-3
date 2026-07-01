@@ -1,0 +1,46 @@
+name: Terraform Quality & Security
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform -chdir=infra init -backend=false
+
+      - name: Terraform Format Check
+        run: terraform -chdir=infra fmt -check -recursive
+
+      - name: Terraform Validate
+        run: terraform -chdir=infra validate
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v4
+
+      - name: Run TFLint
+        run: tflint --chdir=infra
+
+      - name: Run Checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: infra/
+          soft_fail: true
+
+      - name: Terraform Plan (JSON) for OPA
+        run: |
+          terraform -chdir=infra plan -out=plan.out -input=false || true
+          terraform -chdir=infra show -json plan.out > terraform.json || true
+
+      - name: Run OPA
+        run: opa eval --data policies/ --input infra/terraform.json "data.terraform.security.deny"

@@ -1,0 +1,40 @@
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.terraform.tfstate.lock.info
+
+# Plan files
+plan.out
+*.tfplan
+terraform.json
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Keys and credentials
+*.pem
+*.key
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI config
+.terraformrc
+terraform.rc
+
+# Logs
+*.log
+
+# VSCode / Codespaces
+.vscode/
+.devcontainer/
+
+# OS
+.DS_Store
