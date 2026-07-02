@@ -30,3 +30,9 @@ variable "instance_name" {
   type        = string
   default     = "AUY1105-duocapp-ec2"
 }
+
+variable "root_volume_size" {
+  description = "Tamaño deseado (GB) del disco raíz. Si la AMI exige un mínimo mayor, se usa ese mínimo automáticamente (ver locals.resolved_volume_size)."
+  type        = number
+  default     = 30
+}

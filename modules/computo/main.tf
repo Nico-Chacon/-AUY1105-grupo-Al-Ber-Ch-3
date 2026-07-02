@@ -23,6 +23,15 @@ data "aws_ami" "amazon_linux_2023" {
 locals {
   # Si var.ami_id viene definido (no null), se respeta; si no, se usa la AMI resuelta automáticamente.
   resolved_ami_id = coalesce(var.ami_id, data.aws_ami.amazon_linux_2023.id)
+
+  ami_root_bdm = try([
+    for b in data.aws_ami.amazon_linux_2023.block_device_mappings :
+    b if b.device_name == data.aws_ami.amazon_linux_2023.root_device_name
+  ][0], null)
+
+  ami_min_volume_size = try(tonumber(local.ami_root_bdm.ebs["volume_size"]), 30)
+
+  resolved_volume_size = max(var.root_volume_size, local.ami_min_volume_size)
 }
 
 resource "aws_instance" "AUY1105_duocapp_ec2" {
@@ -42,7 +51,7 @@ resource "aws_instance" "AUY1105_duocapp_ec2" {
 
   root_block_device {
     encrypted   = true
-    volume_size = 8
+    volume_size = local.resolved_volume_size
     volume_type = "gp3"
   }
 
