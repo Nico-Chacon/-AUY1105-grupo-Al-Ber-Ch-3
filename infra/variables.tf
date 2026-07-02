@@ -31,9 +31,9 @@ variable "my_ip" {
 }
 
 variable "ami_id" {
-  description = "AMI a utilizar para la instancia EC2 (Amazon Linux 2023 us-east-1, verificar vigencia)"
+  description = "AMI a utilizar para la instancia EC2. Deja null (default) para resolverla automáticamente (última Amazon Linux 2023 disponible)."
   type        = string
-  default     = "ami-0f403e3180720dd7e"
+  default     = null
 }
 
 variable "instance_type" {
@@ -43,7 +43,7 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  description = "Nombre del Key Pair de AWS ya existente en la cuenta, usado para acceso SSH"
+  description = "Nombre del Key Pair de AWS ya existente en la cuenta, usado para acceso SSH. En AWS Academy / Learner Lab el Key Pair por defecto se llama 'labsuser'."
   type        = string
-  default     = "ec2-key-1"
+  default     = "labsuser"
 }

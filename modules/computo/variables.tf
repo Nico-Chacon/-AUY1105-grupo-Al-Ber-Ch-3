@@ -1,6 +1,7 @@
 variable "ami_id" {
-  description = "AMI a utilizar para la instancia EC2"
+  description = "AMI a utilizar para la instancia EC2. Déjalo en null (default) para que se resuelva automáticamente la última Amazon Linux 2023 disponible en la región."
   type        = string
+  default     = null
 }
 
 variable "instance_type" {

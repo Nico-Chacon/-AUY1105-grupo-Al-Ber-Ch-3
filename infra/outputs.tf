@@ -28,6 +28,11 @@ output "instance_id" {
   value       = module.computo.instance_id
 }
 
+output "ami_id_resolved" {
+  description = "AMI efectivamente usada por la instancia"
+  value       = module.computo.ami_id_resolved
+}
+
 output "instance_ip" {
   description = "IP pública de la instancia EC2"
   value       = module.computo.instance_ip

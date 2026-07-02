@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## [3.1.0] - 2026-07-02
+### Cambiado
+- `modules/computo`: `ami_id` ahora es opcional (`default = null`). Se agregó
+  `data "aws_ami" "amazon_linux_2023"` para resolver automáticamente la última AMI de
+  Amazon Linux 2023 disponible en la región, evitando tener que buscarla manualmente en
+  la consola de AWS. Se agregó el output `ami_id_resolved` para ver qué AMI se usó
+  efectivamente.
+- `key_name` ahora tiene como valor por defecto `"labsuser"` (Key Pair estándar de AWS
+  Academy / Learner Lab).
+- Se documentó el uso del secret `EA2_SSH_PRIVATE_KEY` (Codespaces secrets) para
+  reconstruir el `.pem` dentro del Codespace sin subirlo nunca al repositorio.
+
 ## [3.0.0] - 2026-07-01
 ### Cambiado (heredado de AUY1105-grupo-Al-Ber-Ch-2, corregido para EP3)
 - Se corrigieron inconsistencias de nombres de recursos entre `modules/redes`,

@@ -1,7 +1,7 @@
 [![Terraform](https://img.shields.io/badge/Terraform-%3E%3D%201.5.0-623CE4?logo=terraform)](https://www.terraform.io/)
 [![AWS Provider](https://img.shields.io/badge/AWS%20Provider-~%3E%206.0-FF9900?logo=amazon-aws)](https://registry.terraform.io/providers/hashicorp/aws/latest)
 [![Licencia](https://img.shields.io/badge/Licencia-GPLv3-blue)](LICENSE.txt)
-![Demo del módulo](hi-hello.gif)
+![Demo del módulo](5c903b4711d2f62caac133d4f644f6bf.gif)
 
 # Prueba Nº3 - Alvarez, Berardinucci y Chacón
 
@@ -61,9 +61,12 @@ y ajusta al menos:
 
 - `my_ip`: tu IP pública actual en formato `x.x.x.x/32` (obtenla con
   `curl -s https://checkip.amazonaws.com`).
-- `ami_id`: una AMI vigente en tu región (verifica en la consola de EC2 o con
-  `aws ec2 describe-images`).
-- `key_name`: el nombre de un Key Pair existente en tu cuenta/región.
+- `ami_id`: **no requiere acción manual**. Por defecto es `null`, y en ese caso el módulo
+  `modules/computo` resuelve automáticamente la última Amazon Linux 2023 disponible en la
+  región (`data "aws_ami" "amazon_linux_2023"`). Solo defínelo si quieres forzar una AMI
+  específica.
+- `key_name`: por defecto `"labsuser"` (Key Pair estándar de AWS Academy / Learner Lab).
+  Cámbialo solo si tu Key Pair tiene otro nombre.
 
 ## Parámetros principales (root module)
 
@@ -74,19 +77,19 @@ y ajusta al menos:
 | `subnet_cidr`       | CIDR de la subred pública                      | `10.1.1.0/24`         |
 | `availability_zone` | Zona de disponibilidad                         | `us-east-1a`          |
 | `my_ip`             | IP autorizada para SSH (`/32`)                 | *(reemplazar)*        |
-| `ami_id`            | AMI de la instancia EC2                        | *(reemplazar)*        |
+| `ami_id`            | AMI de la instancia EC2 (`null` = automática)  | `null`                 |
 | `instance_type`     | Tipo de instancia (política OPA exige t2.micro)| `t2.micro`             |
-| `key_name`          | Key Pair para acceso SSH                       | `ec2-key-1`            |
+| `key_name`          | Key Pair para acceso SSH                       | `labsuser`             |
 
 ## Outputs
 
 - `vpc_id`, `subnet_id`, `sg_id`, `igw_id`, `route_table_id`
-- `instance_id`, `instance_ip`
+- `instance_id`, `instance_ip`, `ami_id_resolved` (la AMI que realmente se usó)
 
 ## Evaluación Parcial N°3 - Escenarios trabajados
 
 1. **Recuperación del estado de Terraform**: eliminación simulada de `terraform.tfstate`
-   y reconstrucción completa mediante `terraform state import` para cada recurso.
+   y reconstrucción completa mediante `terraform import` para cada recurso.
 2. **Actualización y reforzamiento de recursos**: detección de drift manual vía consola
    AWS, sincronización con `terraform refresh`, y recreación controlada de la EC2 con
    `terraform taint` / `terraform untaint`.
@@ -125,11 +128,17 @@ Crea:
 - `AWS_SESSION_TOKEN` (obligatorio si usas AWS Academy / Learner Lab; sus credenciales
   son temporales y **expiran cada 3-4 horas**, deberás actualizar este secret cada vez
   que reinicies el laboratorio de AWS Academy)
+- `EA2_SSH_PRIVATE_KEY` (opcional, solo si necesitas conectarte por SSH a la EC2): el
+  contenido completo del archivo `labsuser.pem` que entrega AWS Academy (incluyendo las
+  líneas `-----BEGIN RSA PRIVATE KEY-----` y `-----END RSA PRIVATE KEY-----`). Así evitas
+  subir el `.pem` al repo.
 
 **B) Actions secrets** → para que el pipeline de CI pueda ejecutar `terraform plan`:
 `Repositorio → Settings → Secrets and variables → Actions → New repository secret`
 
-Crea los mismos tres secrets con los mismos nombres.
+Crea los mismos secrets con los mismos nombres (`AWS_ACCESS_KEY_ID`,
+`AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`; `EA2_SSH_PRIVATE_KEY` no es necesario aquí,
+ya que el pipeline de CI no se conecta por SSH a nada, solo valida y planifica).
 
 > Terraform y la AWS CLI leen automáticamente las variables de entorno
 > `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` y `AWS_SESSION_TOKEN`. Por eso, dentro del
@@ -149,6 +158,25 @@ aws sts get-caller-identity
 ```
 
 Si el último comando devuelve tu cuenta/rol de AWS, los secrets están bien configurados.
+
+### 3.1 (Opcional) Reconstruir el archivo .pem para SSH desde el secret
+
+Si configuraste `EA2_SSH_PRIVATE_KEY`, dentro del Codespace ejecuta:
+
+```bash
+mkdir -p ~/.ssh
+printf '%s\n' "$EA2_SSH_PRIVATE_KEY" > ~/.ssh/labsuser.pem
+chmod 400 ~/.ssh/labsuser.pem
+```
+
+Esto reconstruye el `.pem` en disco **solo dentro del Codespace** (efímero, no se sube al
+repo). Luego puedes conectarte con:
+
+```bash
+ssh -i ~/.ssh/labsuser.pem ec2-user@<instance_ip>
+```
+
+`<instance_ip>` es el output `instance_ip` que entrega `terraform apply`.
 
 ### 4. Tu IP pública dentro de un Codespace
 
