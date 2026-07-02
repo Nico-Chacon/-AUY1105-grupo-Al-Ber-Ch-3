@@ -27,7 +27,7 @@ variable "my_ip" {
   type        = string
   # IMPORTANTE: reemplaza este valor por tu IP pública real antes de aplicar.
   # Puedes obtenerla con: curl -s https://checkip.amazonaws.com
-  default = "203.0.113.10"
+  default = "203.0.113.10/32"
 }
 
 variable "ami_id" {

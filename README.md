@@ -96,7 +96,80 @@ y ajusta al menos:
 El detalle paso a paso, con las capturas de pantalla requeridas, está documentado en el
 informe entregado (`Informe_EP3_Terraform.docx` / PDF).
 
-## Pipeline de calidad (CI)
+## Trabajar con GitHub Codespaces (recomendado para esta evaluación)
+
+Este repositorio incluye `.devcontainer/devcontainer.json`, que prepara automáticamente
+un Codespace con **Terraform** y **AWS CLI** ya instalados (no necesitas instalarlos
+manualmente).
+
+### 1. Nunca subas credenciales al repositorio
+
+Antes de tocar código, verifica que **nunca** se commitee:
+
+- `terraform.tfstate`, `terraform.tfstate.backup`, `*.tfvars` (ya están en `.gitignore`)
+- `~/.aws/credentials` o cualquier archivo con `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY`
+- El archivo `.pem` de tu Key Pair
+
+Las credenciales de AWS se inyectan como **secrets**, nunca escritas en archivos del repo.
+
+### 2. Configurar los secrets en GitHub (antes de abrir el Codespace)
+
+Necesitas **dos lugares distintos** de secrets (son independientes entre sí):
+
+**A) Codespaces secrets** → para que Terraform tenga credenciales dentro del Codespace:
+`Repositorio → Settings → Secrets and variables → Codespaces → New repository secret`
+
+Crea:
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_SESSION_TOKEN` (obligatorio si usas AWS Academy / Learner Lab; sus credenciales
+  son temporales y **expiran cada 3-4 horas**, deberás actualizar este secret cada vez
+  que reinicies el laboratorio de AWS Academy)
+
+**B) Actions secrets** → para que el pipeline de CI pueda ejecutar `terraform plan`:
+`Repositorio → Settings → Secrets and variables → Actions → New repository secret`
+
+Crea los mismos tres secrets con los mismos nombres.
+
+> Terraform y la AWS CLI leen automáticamente las variables de entorno
+> `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` y `AWS_SESSION_TOKEN`. Por eso, dentro del
+> Codespace **no necesitas ejecutar `aws configure`** (evita crear un archivo de
+> credenciales en disco).
+
+### 3. Abrir el Codespace
+
+`Code → Codespaces → Create codespace on main`
+
+Al terminar de construirse, verifica:
+
+```bash
+terraform -version
+aws --version
+aws sts get-caller-identity
+```
+
+Si el último comando devuelve tu cuenta/rol de AWS, los secrets están bien configurados.
+
+### 4. Tu IP pública dentro de un Codespace
+
+Un Codespace corre en la nube de GitHub/Azure, **no en tu computador**. Si vas a
+conectarte por SSH a la EC2 desde el propio Codespace, usa la IP de salida del
+Codespace:
+
+```bash
+curl -s https://checkip.amazonaws.com
+```
+
+Si en cambio te conectarás por SSH desde tu notebook, usa la IP pública de tu notebook
+(la misma URL, ejecutada desde tu terminal local, no desde el Codespace).
+
+### 5. Antes de cada `git push`
+
+```bash
+git status                 # confirma que NO aparezcan .tfstate, .tfvars ni credenciales
+terraform -chdir=infra fmt # formatea el código
+```
+
 
 `.github/workflows/deploy.yml` ejecuta en cada push/PR a `main`:
 
@@ -105,6 +178,7 @@ informe entregado (`Informe_EP3_Terraform.docx` / PDF).
 3. `checkov` (modo `soft_fail`, no bloquea el pipeline)
 4. Generación de plan en JSON + evaluación con **OPA** contra `policies/security.rego`
 
-> Nota: el paso de `terraform plan` en CI requiere credenciales AWS configuradas como
-> secrets del repositorio (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`); si no están
-> configuradas, ese paso puede fallar de forma esperada y no bloquea el resto del pipeline.
+> Nota: el paso "Configure AWS Credentials" usa los **Actions secrets** configurados en
+> el punto anterior. Si el `AWS_SESSION_TOKEN` de AWS Academy expiró, este paso fallará
+> con un error de autenticación esperado — actualiza el secret y vuelve a ejecutar el
+> workflow (`Actions → workflow → Re-run jobs`).
