@@ -1,0 +1,431 @@
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Reading...[0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Refreshing state... [id=vpc-02f59402898a604ea][0m
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Read complete after 1s [id=ami-00b2eb779cc80e1f9][0m
+[0m[1mmodule.redes.aws_internet_gateway.AUY1105_duocapp_igw: Refreshing state... [id=igw-08eb5d358630f3f98][0m
+[0m[1mmodule.redes.aws_subnet.AUY1105_duocapp_subnet: Refreshing state... [id=subnet-01dae0bcc1220ee8d][0m
+[0m[1mmodule.redes.aws_route_table.AUY1105_duocapp_rt: Refreshing state... [id=rtb-0b2f19ec40727a5b3][0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Refreshing state... [id=i-0487e6a2eaf761105][0m
+[0m[1mmodule.redes.aws_route_table_association.AUY1105_duocapp_rta: Refreshing state... [id=rtbassoc-0793b4fcad6276b00][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.computo.aws_instance.AUY1105_duocapp_ec2[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_instance" "AUY1105_duocapp_ec2" {
+      [31m-[0m[0m ami                                  = "ami-00b2eb779cc80e1f9" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:590183722484:instance/i-0487e6a2eaf761105" [90m-> null[0m[0m
+      [31m-[0m[0m associate_public_ip_address          = true [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                    = "us-east-1a" [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_stop                     = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_termination              = false [90m-> null[0m[0m
+      [31m-[0m[0m ebs_optimized                        = true [90m-> null[0m[0m
+      [31m-[0m[0m force_destroy                        = false [90m-> null[0m[0m
+      [31m-[0m[0m get_password_data                    = false [90m-> null[0m[0m
+      [31m-[0m[0m hibernation                          = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "i-0487e6a2eaf761105" [90m-> null[0m[0m
+      [31m-[0m[0m instance_initiated_shutdown_behavior = "stop" [90m-> null[0m[0m
+      [31m-[0m[0m instance_state                       = "running" [90m-> null[0m[0m
+      [31m-[0m[0m instance_type                        = "t2.micro" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_address_count                   = 0 [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_addresses                       = [] [90m-> null[0m[0m
+      [31m-[0m[0m key_name                             = "labsuser1" [90m-> null[0m[0m
+      [31m-[0m[0m monitoring                           = true [90m-> null[0m[0m
+      [31m-[0m[0m placement_partition_number           = 0 [90m-> null[0m[0m
+      [31m-[0m[0m primary_network_interface_id         = "eni-04b3feab584282019" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns                          = "ip-10-1-1-157.ec2.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                           = "10.1.1.157" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns                           = "ec2-3-90-156-205.compute-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                            = "3.90.156.205" [90m-> null[0m[0m
+      [31m-[0m[0m region                               = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ips                = [] [90m-> null[0m[0m
+      [31m-[0m[0m security_groups                      = [] [90m-> null[0m[0m
+      [31m-[0m[0m source_dest_check                    = true [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                            = "subnet-01dae0bcc1220ee8d" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Environment" = "dev"
+          [31m-[0m[0m "Name"        = "AUY1105-duocapp-ec2"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Environment" = "dev"
+          [31m-[0m[0m "Name"        = "AUY1105-duocapp-ec2"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tenancy                              = "default" [90m-> null[0m[0m
+      [31m-[0m[0m user_data_replace_on_change          = false [90m-> null[0m[0m
+      [31m-[0m[0m vpc_security_group_ids               = [
+          [31m-[0m[0m "sg-00614b27e69344623",
+        ] [90m-> null[0m[0m
+        [90m# (8 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m capacity_reservation_specification {
+          [31m-[0m[0m capacity_reservation_preference = "open" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m cpu_options {
+          [31m-[0m[0m core_count            = 1 [90m-> null[0m[0m
+          [31m-[0m[0m threads_per_core      = 1 [90m-> null[0m[0m
+            [90m# (2 unchanged attributes hidden)[0m[0m
+        }
+
+      [31m-[0m[0m credit_specification {
+          [31m-[0m[0m cpu_credits = "standard" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m enclave_options {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m maintenance_options {
+          [31m-[0m[0m auto_recovery = "default" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m metadata_options {
+          [31m-[0m[0m http_endpoint               = "enabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_protocol_ipv6          = "disabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_put_response_hop_limit = 2 [90m-> null[0m[0m
+          [31m-[0m[0m http_tokens                 = "required" [90m-> null[0m[0m
+          [31m-[0m[0m instance_metadata_tags      = "disabled" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m primary_network_interface {
+          [31m-[0m[0m delete_on_termination = true [90m-> null[0m[0m
+          [31m-[0m[0m network_interface_id  = "eni-04b3feab584282019" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m private_dns_name_options {
+          [31m-[0m[0m enable_resource_name_dns_a_record    = false [90m-> null[0m[0m
+          [31m-[0m[0m enable_resource_name_dns_aaaa_record = false [90m-> null[0m[0m
+          [31m-[0m[0m hostname_type                        = "ip-name" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m root_block_device {
+          [31m-[0m[0m delete_on_termination = true [90m-> null[0m[0m
+          [31m-[0m[0m device_name           = "/dev/xvda" [90m-> null[0m[0m
+          [31m-[0m[0m encrypted             = true [90m-> null[0m[0m
+          [31m-[0m[0m iops                  = 3000 [90m-> null[0m[0m
+          [31m-[0m[0m kms_key_id            = "arn:aws:kms:us-east-1:590183722484:key/42d95486-e8cc-4320-8ca0-bb64da1f487c" [90m-> null[0m[0m
+          [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+          [31m-[0m[0m tags_all              = {} [90m-> null[0m[0m
+          [31m-[0m[0m throughput            = 125 [90m-> null[0m[0m
+          [31m-[0m[0m volume_id             = "vol-09d90a7f46d70d16c" [90m-> null[0m[0m
+          [31m-[0m[0m volume_size           = 30 [90m-> null[0m[0m
+          [31m-[0m[0m volume_type           = "gp3" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # module.redes.aws_internet_gateway.AUY1105_duocapp_igw[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_internet_gateway" "AUY1105_duocapp_igw" {
+      [31m-[0m[0m arn      = "arn:aws:ec2:us-east-1:590183722484:internet-gateway/igw-08eb5d358630f3f98" [90m-> null[0m[0m
+      [31m-[0m[0m id       = "igw-08eb5d358630f3f98" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id = "590183722484" [90m-> null[0m[0m
+      [31m-[0m[0m region   = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m tags     = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-igw"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-igw"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id   = "vpc-02f59402898a604ea" [90m-> null[0m[0m
+    }
+
+[1m  # module.redes.aws_route_table.AUY1105_duocapp_rt[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table" "AUY1105_duocapp_rt" {
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:590183722484:route-table/rtb-0b2f19ec40727a5b3" [90m-> null[0m[0m
+      [31m-[0m[0m id               = "rtb-0b2f19ec40727a5b3" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "590183722484" [90m-> null[0m[0m
+      [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
+      [31m-[0m[0m region           = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m route            = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_block                 = "0.0.0.0/0"
+              [31m-[0m[0m gateway_id                 = "igw-08eb5d358630f3f98"
+                [90m# (12 unchanged attributes hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-rt"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-rt"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id           = "vpc-02f59402898a604ea" [90m-> null[0m[0m
+    }
+
+[1m  # module.redes.aws_route_table_association.AUY1105_duocapp_rta[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_route_table_association" "AUY1105_duocapp_rta" {
+      [31m-[0m[0m id             = "rtbassoc-0793b4fcad6276b00" [90m-> null[0m[0m
+      [31m-[0m[0m region         = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-0b2f19ec40727a5b3" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-01dae0bcc1220ee8d" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.redes.aws_subnet.AUY1105_duocapp_subnet[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_subnet" "AUY1105_duocapp_subnet" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:590183722484:subnet/subnet-01dae0bcc1220ee8d" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az6" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "10.1.1.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-01dae0bcc1220ee8d" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "590183722484" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m region                                         = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-subnet"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-subnet"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-02f59402898a604ea" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.redes.aws_vpc.AUY1105_duocapp_vpc[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_vpc" "AUY1105_duocapp_vpc" {
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:590183722484:vpc/vpc-02f59402898a604ea" [90m-> null[0m[0m
+      [31m-[0m[0m assign_generated_ipv6_cidr_block     = false [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                           = "10.1.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m default_network_acl_id               = "acl-081991f83e70f0cbc" [90m-> null[0m[0m
+      [31m-[0m[0m default_route_table_id               = "rtb-07e6db606f554e51f" [90m-> null[0m[0m
+      [31m-[0m[0m default_security_group_id            = "sg-06b447a228a89d9f0" [90m-> null[0m[0m
+      [31m-[0m[0m dhcp_options_id                      = "dopt-01f1b1efc3e70c7e7" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_hostnames                 = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_support                   = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_network_address_usage_metrics = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "vpc-02f59402898a604ea" [90m-> null[0m[0m
+      [31m-[0m[0m instance_tenancy                     = "default" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_netmask_length                  = 0 [90m-> null[0m[0m
+      [31m-[0m[0m main_route_table_id                  = "rtb-07e6db606f554e51f" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                             = "590183722484" [90m-> null[0m[0m
+      [31m-[0m[0m region                               = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-vpc"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-vpc"
+        } [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 0 to change, 6 to destroy.
+
+Changes to Outputs:
+  [31m-[0m[0m ami_id_resolved = "ami-00b2eb779cc80e1f9" [90m-> null[0m[0m
+  [31m-[0m[0m igw_id          = "igw-08eb5d358630f3f98" [90m-> null[0m[0m
+  [31m-[0m[0m instance_id     = "i-0487e6a2eaf761105" [90m-> null[0m[0m
+  [31m-[0m[0m instance_ip     = "3.90.156.205" [90m-> null[0m[0m
+  [31m-[0m[0m route_table_id  = "rtb-0b2f19ec40727a5b3" [90m-> null[0m[0m
+  [31m-[0m[0m sg_id           = "sg-00614b27e69344623" [90m-> null[0m[0m
+  [31m-[0m[0m subnet_id       = "subnet-01dae0bcc1220ee8d" [90m-> null[0m[0m
+  [31m-[0m[0m vpc_id          = "vpc-02f59402898a604ea" [90m-> null[0m[0m
+[0m[1m
+Do you really want to destroy all resources?[0m
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  [1mEnter a value:[0m [0m
+[0m[1mmodule.redes.aws_route_table_association.AUY1105_duocapp_rta: Destroying... [id=rtbassoc-0793b4fcad6276b00][0m[0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Destroying... [id=i-0487e6a2eaf761105][0m[0m
+[0m[1mmodule.redes.aws_route_table_association.AUY1105_duocapp_rta: Destruction complete after 1s[0m
+[0m[1mmodule.redes.aws_route_table.AUY1105_duocapp_rt: Destroying... [id=rtb-0b2f19ec40727a5b3][0m[0m
+[0m[1mmodule.redes.aws_route_table.AUY1105_duocapp_rt: Destruction complete after 0s[0m
+[0m[1mmodule.redes.aws_internet_gateway.AUY1105_duocapp_igw: Destroying... [id=igw-08eb5d358630f3f98][0m[0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Still destroying... [id=i-0487e6a2eaf761105, 00m10s elapsed][0m[0m
+[0m[1mmodule.redes.aws_internet_gateway.AUY1105_duocapp_igw: Still destroying... [id=igw-08eb5d358630f3f98, 00m10s elapsed][0m[0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Still destroying... [id=i-0487e6a2eaf761105, 00m20s elapsed][0m[0m
+[0m[1mmodule.redes.aws_internet_gateway.AUY1105_duocapp_igw: Still destroying... [id=igw-08eb5d358630f3f98, 00m20s elapsed][0m[0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Still destroying... [id=i-0487e6a2eaf761105, 00m30s elapsed][0m[0m
+[0m[1mmodule.redes.aws_internet_gateway.AUY1105_duocapp_igw: Still destroying... [id=igw-08eb5d358630f3f98, 00m30s elapsed][0m[0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Still destroying... [id=i-0487e6a2eaf761105, 00m40s elapsed][0m[0m
+[0m[1mmodule.redes.aws_internet_gateway.AUY1105_duocapp_igw: Still destroying... [id=igw-08eb5d358630f3f98, 00m40s elapsed][0m[0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Still destroying... [id=i-0487e6a2eaf761105, 00m50s elapsed][0m[0m
+[0m[1mmodule.redes.aws_internet_gateway.AUY1105_duocapp_igw: Still destroying... [id=igw-08eb5d358630f3f98, 00m50s elapsed][0m[0m
+[0m[1mmodule.redes.aws_internet_gateway.AUY1105_duocapp_igw: Destruction complete after 58s[0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Still destroying... [id=i-0487e6a2eaf761105, 01m00s elapsed][0m[0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Destruction complete after 1m1s[0m
+[0m[1mmodule.redes.aws_subnet.AUY1105_duocapp_subnet: Destroying... [id=subnet-01dae0bcc1220ee8d][0m[0m
+[0m[1mmodule.redes.aws_subnet.AUY1105_duocapp_subnet: Destruction complete after 0s[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Destroying... [id=vpc-02f59402898a604ea][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 00m10s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 00m20s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 00m30s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 00m40s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 00m50s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 01m00s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 01m10s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 01m20s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 01m30s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 01m40s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 01m50s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 02m00s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 02m10s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 02m20s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 02m30s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 02m40s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 02m50s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 03m00s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 03m10s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 03m20s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 03m30s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 03m40s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 03m50s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 04m00s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 04m10s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 04m20s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 04m30s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 04m40s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 04m50s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 05m00s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 05m10s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 05m20s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 05m30s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 05m40s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 05m50s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 06m00s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 06m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 06m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 06m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 06m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 06m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 07m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 07m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 07m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 07m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 07m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 07m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 08m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 08m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 08m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 08m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 08m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 08m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 09m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 09m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 09m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 09m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 09m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 09m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 10m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 10m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 10m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 10m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 10m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 10m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 11m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 11m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 11m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 11m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 11m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 11m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 12m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 12m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 12m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 12m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 12m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 12m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 13m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 13m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 13m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 13m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 13m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 13m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 14m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 14m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 14m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 14m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 14m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 14m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 15m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 15m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 15m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 15m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 15m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 15m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 16m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 16m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 16m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 16m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 16m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 16m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 17m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 17m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 17m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 17m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 17m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 17m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 18m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 18m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 18m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 18m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 18m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 18m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 19m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 19m11s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 19m21s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 19m31s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 19m41s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 19m51s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 20m01s elapsed][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Still destroying... [id=vpc-02f59402898a604ea, 20m11s elapsed][0m[0m
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Reading...[0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Refreshing state... [id=vpc-02f59402898a604ea][0m
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Read complete after 0s [id=ami-00b2eb779cc80e1f9][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.redes.aws_vpc.AUY1105_duocapp_vpc[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_vpc" "AUY1105_duocapp_vpc" {
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:590183722484:vpc/vpc-02f59402898a604ea" [90m-> null[0m[0m
+      [31m-[0m[0m assign_generated_ipv6_cidr_block     = false [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                           = "10.1.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m default_network_acl_id               = "acl-081991f83e70f0cbc" [90m-> null[0m[0m
+      [31m-[0m[0m default_route_table_id               = "rtb-07e6db606f554e51f" [90m-> null[0m[0m
+      [31m-[0m[0m default_security_group_id            = "sg-06b447a228a89d9f0" [90m-> null[0m[0m
+      [31m-[0m[0m dhcp_options_id                      = "dopt-01f1b1efc3e70c7e7" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_hostnames                 = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_support                   = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_network_address_usage_metrics = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "vpc-02f59402898a604ea" [90m-> null[0m[0m
+      [31m-[0m[0m instance_tenancy                     = "default" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_netmask_length                  = 0 [90m-> null[0m[0m
+      [31m-[0m[0m main_route_table_id                  = "rtb-07e6db606f554e51f" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                             = "590183722484" [90m-> null[0m[0m
+      [31m-[0m[0m region                               = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-vpc"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Name" = "AUY1105-duocapp-vpc"
+        } [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 0 to change, 1 to destroy.
+
+Changes to Outputs:
+  [31m-[0m[0m ami_id_resolved = "ami-00b2eb779cc80e1f9" [90m-> null[0m[0m
+  [31m-[0m[0m vpc_id          = "vpc-02f59402898a604ea" [90m-> null[0m[0m
+[0m[1m
+Do you really want to destroy all resources?[0m
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  [1mEnter a value:[0m [0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Destroying... [id=vpc-02f59402898a604ea][0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Destruction complete after 1s[0m
+[0m[1m[32m
+Destroy complete! Resources: 1 destroyed.[0m
