@@ -1,0 +1,12 @@
+[0m[1mmodule.redes.aws_subnet.AUY1105_duocapp_subnet: Importing from ID "subnet-01dae0bcc1220ee8d"...[0m
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Reading...[0m[0m
+[0m[1m[32mmodule.redes.aws_subnet.AUY1105_duocapp_subnet: Import prepared![0m
+[0m[32m  Prepared aws_subnet for import[0m
+[0m[1mmodule.redes.aws_subnet.AUY1105_duocapp_subnet: Refreshing state... [id=subnet-01dae0bcc1220ee8d][0m
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Read complete after 0s [id=ami-00b2eb779cc80e1f9][0m
+[0m[32m
+Import successful!
+
+The resources that were imported are shown above. These resources are now in
+your Terraform state and will henceforth be managed by Terraform.
+[0m

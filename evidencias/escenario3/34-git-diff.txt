@@ -1,0 +1,76 @@
+diff --git a/infra/main.tf b/infra/main.tf
+index 1c2a236..d7a26fd 100644
+--- a/infra/main.tf
++++ b/infra/main.tf
+@@ -15,6 +15,6 @@ module "computo" {
+   ami_id        = var.ami_id
+   instance_type = var.instance_type
+   subnet_id     = module.redes.subnet_id
+-  sg_id         = module.redes.sg_id
++  sg_id         = "sg-00614b27e69344623"
+   key_name      = var.key_name
+ }
+diff --git a/infra/outputs.tf b/infra/outputs.tf
+index 5baa508..4d70a1d 100644
+--- a/infra/outputs.tf
++++ b/infra/outputs.tf
+@@ -8,11 +8,6 @@ output "subnet_id" {
+   value       = module.redes.subnet_id
+ }
+ 
+-output "sg_id" {
+-  description = "ID del Security Group"
+-  value       = module.redes.sg_id
+-}
+-
+ output "igw_id" {
+   description = "ID del Internet Gateway"
+   value       = module.redes.igw_id
+diff --git a/modules/redes/main.tf b/modules/redes/main.tf
+index 9577756..d74fae1 100644
+--- a/modules/redes/main.tf
++++ b/modules/redes/main.tf
+@@ -45,28 +45,4 @@ resource "aws_route_table_association" "AUY1105_duocapp_rta" {
+   route_table_id = aws_route_table.AUY1105_duocapp_rt.id
+ }
+ 
+-resource "aws_security_group" "AUY1105_duocapp_sg" {
+-  name        = var.sg_name
+-  description = "SG para instancias EC2 - solo SSH desde IP autorizada"
+-  vpc_id      = aws_vpc.AUY1105_duocapp_vpc.id
+ 
+-  ingress {
+-    from_port   = 22
+-    to_port     = 22
+-    protocol    = "tcp"
+-    cidr_blocks = [var.allowed_ssh_cidr]
+-    description = "Acceso SSH desde IP autorizada"
+-  }
+-
+-  egress {
+-    from_port   = 0
+-    to_port     = 0
+-    protocol    = "-1"
+-    cidr_blocks = ["0.0.0.0/0"]
+-    description = "Salida total"
+-  }
+-
+-  tags = {
+-    Name = var.sg_name
+-  }
+-}
+diff --git a/modules/redes/outputs.tf b/modules/redes/outputs.tf
+index eda719f..cdd5c83 100644
+--- a/modules/redes/outputs.tf
++++ b/modules/redes/outputs.tf
+@@ -8,10 +8,6 @@ output "subnet_id" {
+   value       = aws_subnet.AUY1105_duocapp_subnet.id
+ }
+ 
+-output "sg_id" {
+-  description = "ID del Security Group creado"
+-  value       = aws_security_group.AUY1105_duocapp_sg.id
+-}
+ 
+ output "igw_id" {
+   description = "ID del Internet Gateway creado"

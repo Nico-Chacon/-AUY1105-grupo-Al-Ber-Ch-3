@@ -8,11 +8,6 @@ output "subnet_id" {
   value       = module.redes.subnet_id
 }
 
-output "sg_id" {
-  description = "ID del Security Group"
-  value       = module.redes.sg_id
-}
-
 output "igw_id" {
   description = "ID del Internet Gateway"
   value       = module.redes.igw_id

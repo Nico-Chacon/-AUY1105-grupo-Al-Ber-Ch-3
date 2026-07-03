@@ -1,0 +1,1 @@
+Resource instance module.computo.aws_instance.AUY1105_duocapp_ec2 has been marked as tainted.

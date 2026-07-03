@@ -1,0 +1,12 @@
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Reading...[0m[0m
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Read complete after 1s [id=ami-00b2eb779cc80e1f9][0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Importing from ID "i-0ec7371b2bd5a3244"...[0m
+[0m[1m[32mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Import prepared![0m
+[0m[32m  Prepared aws_instance for import[0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Refreshing state... [id=i-0ec7371b2bd5a3244][0m
+[0m[32m
+Import successful!
+
+The resources that were imported are shown above. These resources are now in
+your Terraform state and will henceforth be managed by Terraform.
+[0m

@@ -1,0 +1,49 @@
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Reading...[0m[0m
+[0m[1mmodule.redes.aws_vpc.AUY1105_duocapp_vpc: Refreshing state... [id=vpc-02f59402898a604ea][0m
+[0m[1mmodule.computo.data.aws_ami.amazon_linux_2023: Read complete after 1s [id=ami-00b2eb779cc80e1f9][0m
+[0m[1mmodule.redes.aws_internet_gateway.AUY1105_duocapp_igw: Refreshing state... [id=igw-08eb5d358630f3f98][0m
+[0m[1mmodule.redes.aws_subnet.AUY1105_duocapp_subnet: Refreshing state... [id=subnet-01dae0bcc1220ee8d][0m
+[0m[1mmodule.redes.aws_security_group.AUY1105_duocapp_sg: Refreshing state... [id=sg-00614b27e69344623][0m
+[0m[1mmodule.redes.aws_route_table.AUY1105_duocapp_rt: Refreshing state... [id=rtb-0b2f19ec40727a5b3][0m
+[0m[1mmodule.redes.aws_route_table_association.AUY1105_duocapp_rta: Refreshing state... [id=rtbassoc-0793b4fcad6276b00][0m
+[0m[1mmodule.computo.aws_instance.AUY1105_duocapp_ec2: Refreshing state... [id=i-0ec7371b2bd5a3244][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [33m~[0m update in-place[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.redes.aws_security_group.AUY1105_duocapp_sg[0m will be updated in-place
+[0m  [33m~[0m[0m resource "aws_security_group" "AUY1105_duocapp_sg" {
+        id                     = "sg-00614b27e69344623"
+      [33m~[0m[0m ingress                = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "191.112.222.208/32",
+                ]
+              [31m-[0m[0m from_port        = 8080
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 8080
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+            [90m# (1 unchanged element hidden)[0m[0m
+        ]
+        name                   = "AUY1105-duocapp-sg"
+      [32m+[0m[0m revoke_rules_on_delete = false
+        tags                   = {
+            "Name" = "AUY1105-duocapp-sg"
+        }
+        [90m# (8 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 1 to change, 0 to destroy.
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

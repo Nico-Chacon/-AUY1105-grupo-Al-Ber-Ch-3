@@ -15,6 +15,6 @@ module "computo" {
   ami_id        = var.ami_id
   instance_type = var.instance_type
   subnet_id     = module.redes.subnet_id
-  sg_id         = module.redes.sg_id
+  sg_id         = "sg-00614b27e69344623"
   key_name      = var.key_name
 }

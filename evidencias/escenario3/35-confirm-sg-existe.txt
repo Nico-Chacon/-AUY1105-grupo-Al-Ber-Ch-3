@@ -1,0 +1,48 @@
+{
+    "SecurityGroups": [
+        {
+            "GroupId": "sg-00614b27e69344623",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "-1",
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "Salida total",
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "AUY1105-duocapp-sg"
+                }
+            ],
+            "VpcId": "vpc-02f59402898a604ea",
+            "SecurityGroupArn": "arn:aws:ec2:us-east-1:590183722484:security-group/sg-00614b27e69344623",
+            "OwnerId": "590183722484",
+            "GroupName": "AUY1105-duocapp-sg",
+            "Description": "SG para instancias EC2 - solo SSH desde IP autorizada",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 22,
+                    "ToPort": 22,
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "Acceso SSH desde IP autorizada",
+                            "CidrIp": "51.8.152.68/32"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        }
+    ]
+}

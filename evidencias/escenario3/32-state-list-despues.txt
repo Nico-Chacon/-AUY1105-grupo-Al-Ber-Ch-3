@@ -1,0 +1,7 @@
+module.computo.data.aws_ami.amazon_linux_2023
+module.computo.aws_instance.AUY1105_duocapp_ec2
+module.redes.aws_internet_gateway.AUY1105_duocapp_igw
+module.redes.aws_route_table.AUY1105_duocapp_rt
+module.redes.aws_route_table_association.AUY1105_duocapp_rta
+module.redes.aws_subnet.AUY1105_duocapp_subnet
+module.redes.aws_vpc.AUY1105_duocapp_vpc

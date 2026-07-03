@@ -1,0 +1,2 @@
+Removed module.redes.aws_security_group.AUY1105_duocapp_sg
+Successfully removed 1 resource instance(s).
